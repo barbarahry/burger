@@ -1,6 +1,8 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function(){
 
+ 
+
   console.log("ANDY RULES")
 
 $("#create-burger").on("click", function (event) {
@@ -32,14 +34,32 @@ $("#create-burger").on("click", function (event) {
 $(".change-devoured").on("click", function(event) {
   console.log("\nchange-devoured    !!    change-devoured");
   var id = $(this).data("id");
+  console.log("\n burgers.change-devoured.id", id);
+  var cel = $(this).data("cel");
+  console.log("\n burgers.change-devoured.cel", cel);
+  var player = "";
+  if ($(this).data("player") == "X") {
+    player = "O";
+  } else {
+    player = "X";
+  };
+  console.log("\n burgers.change-devoured.player", player);
+  //var colUpdate = cel + "='" + player +"'";
+  var colUpdate = cel + "='" + player +"', lastPlayer='" + player + "'";
+  console.log("\n burgers.change-devoured.colUpdate", colUpdate);
    var newEat = 1;
 
    var newDevoured = {
     devoured: newEat
    };
 
+   var newEat = "X";
+   var newDevoured = {
+    cel7: newEat
+   };
+
    // Send the PUT request.
-   $.ajax("/" + id, {
+   $.ajax("/" + id + colUpdate, {
      type: "PUT",
      data: newDevoured
    }).then(
@@ -82,5 +102,10 @@ $("#delete-burger").on("click", function(event) {
      }
    );
  });
+
+ $(".cell").click(function() {
+  (".showcell").css("visibility", "visible");
+});
+
 
 })

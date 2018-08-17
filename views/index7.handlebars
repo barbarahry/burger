@@ -1,3 +1,4 @@
+<div>
 <nav class="site-header sticky-top py-1">
   <div class="container d-flex flex-column flex-md-row justify-content-between">
     <a class="py-2" href="#">
@@ -9,7 +10,7 @@
 
   </div>
 </nav>
-
+</div>
 <!-- <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
       <div class="col-md-5 p-lg-5 mx-auto my-5">
         <h1 class="display-4 font-weight-normal">Punny headline</h1>
@@ -36,64 +37,25 @@
         <img src="assets/images/humb.png" alt="profile1">
         <a href="#" id=""></a><h2>Eat Me </h2><a/>
       </div>
-      <p class=" page-inner ">humburger with cheese and salad and some other fat shit. </p>
+      <p class=" page-inner ">humburger with cheese and salad and some other phat shit. </p>
 <table>
   {{#each burgers}}
     {{#unless devoured }}
-      {{> burgers/burger-block sleep=true}}
+      {{> burgers/burger-block sleep=true player="X"}}
     {{/unless}}
   {{/each}}
 </table>
 
     </div>
-    <div class="bg-light shadow-sm mx-auto" style="width: 80%;  border-radius: 21px 21px 0 0;"></div>
-  </div>
-  <div class="side-right  text-center h-100">
-    <div class="my-3 p-3 h-100">
-      <h3>
-        <span>FOOD CONSUMED</span>
-
-      </h3>
-
-{{!-- Burgers that are devoured   --}}
-
-
-
-
-      <div class="profile">
-        <img src="assets/images/giphy.gif" alt="profile1">
-        <h2>All Gone </h2>
-      </div>
-      <p class="page-inner ">humburger with cheese and salad and some other fat shit. </p>
- 
- <ul>
-  {{#each burgers}}
-    {{#if devoured }}
-      {{> burgers/burgerD-block}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-    <div class="bg-dark shadow-sm mx-auto" style="width: 80%;  border-radius: 21px 21px 0 0;"></div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {{!-- <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script> --}}
-{{!-- <script src="assets/js/popper.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/holder.min.js"></script>
-<script src="assets/js/burgers.js"></script> --}}
+{{!-- <script src="assets/js/holder.min.js"></script> --}}
+<script src="assets/js/burgers.js"></script>
 {{!-- <script>
   Holder.addTheme('thumb', {
     bg: '#55595c',
