@@ -17,7 +17,7 @@ $("#create-burger").on("click", function (event) {
   console.log("\nnewBurger: " + newBurger.neworder);
   
   // Send the POST request.
-  $.ajax("/",{
+  $.ajax("/tictactoe3",{
     // url: "/",
     type: "POST",
     data: newBurger
@@ -33,8 +33,11 @@ $("#create-burger").on("click", function (event) {
 
 $(".change-devoured").on("click", function(event) {
   console.log("\nchange-devoured    !!    change-devoured");
+  console.log("\n burgers.change-devoured.data", $(this).data);
   var id = $(this).data("id");
   console.log("\n burgers.change-devoured.id", id);
+  var gameMove = $(this).data("gamemove");
+  console.log("\n burgers.change-devoured.gamemove", gameMove);
   var cel = $(this).data("cel");
   console.log("\n burgers.change-devoured.cel", cel);
   var player = "";
@@ -44,8 +47,14 @@ $(".change-devoured").on("click", function(event) {
     player = "X";
   };
   console.log("\n burgers.change-devoured.player", player);
+  
+  var gameMoveNum = parseInt(gameMove) + 1;
+  
   //var colUpdate = cel + "='" + player +"'";
-  var colUpdate = cel + "='" + player +"', lastPlayer='" + player + "'";
+  var colUpdate = cel + "='" + player +"', lastPlayer='" + player + "', gameMove='" + gameMoveNum + "'";
+  if (gameMoveNum==9) {
+    colUpdate += ", gameOver =" + 1;
+  };
   console.log("\n burgers.change-devoured.colUpdate", colUpdate);
    var newEat = 1;
 
@@ -59,7 +68,7 @@ $(".change-devoured").on("click", function(event) {
    };
 
    // Send the PUT request.
-   $.ajax("/" + id + colUpdate, {
+   $.ajax("/tictactoe3" + id + colUpdate , {
      type: "PUT",
      data: newDevoured
    }).then(
@@ -92,7 +101,7 @@ $("#delete-burger").on("click", function(event) {
    var id = $(this).data("id");
  
    // Send the DELETE request.   api/burgers/
-   $.ajax("/" + id, {
+   $.ajax("/tictactoe3" + id, {
      type: "DELETE"
    }).then(
      function() {
@@ -103,9 +112,7 @@ $("#delete-burger").on("click", function(event) {
    );
  });
 
- $(".cell").click(function() {
-  (".showcell").css("visibility", "visible");
-});
+
 
 
 })

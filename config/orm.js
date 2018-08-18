@@ -73,14 +73,19 @@ var orm = {
     });
   },
   // An example of objColVals would be {burger_name: panther, devoured: true}
-  update: function(table, objColVals, condition, cb) {
-    console.log("\norm.Updating Burger# ");
+  update: function(table,  objColVals, condition,  cb) {
     console.log("\norm.update table " + table);
+    //console.log("\norm.Updating move# " + moveNum);
     console.log("\norm.update objColVals " + objColVals);
     console.log("\norm.update condition " + condition);
-    var queryString = "UPDATE " + table;
-
-    queryString += " SET ";
+    var queryString = "UPDATE " + table + " SET ";
+    //queryString += " SET ";
+/*
+    if (moveNum==9) {
+      queryString += "gameOver =" + 1 + ", ";
+    };
+    console.log("\norm.update gameOver " + moveNum);
+*/        
     //queryString += objToSql(objColVals);
     queryString += objColVals;
     queryString += " WHERE ";

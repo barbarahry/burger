@@ -6,21 +6,10 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-  //console.log("\nGETing: :");
-  burger.all(function(data) {
-    var hbsObject = {
-      burgers: data
-    };
-    //console.log("GET METHOD HIT")
-    console.log(hbsObject);
-    res.render("index", hbsObject);
-   
+
+  router.get("/", function(req, res) {
+    res.render("index");
   });
-
-
-
-
 
 router.get("/tictactoe1", function(req, res) {
     res.render("tictactoe1");
@@ -32,26 +21,27 @@ router.get("/tictactoe2", function(req, res) {
 
   router.get("/tictactoe3", function(req, res) {
 
-    // burger.all(function(data) {
-    //   var hbsObject = {
-    //     burgers: data
-    //   };
-    //   //console.log("GET METHOD HIT")
-    //   console.log(hbsObject);
-    //   res.render("tictactoe3", hbsObject);
+    burger.all(function(data) {
+      var hbsObject = {
+        burgers: data
+      };
+      //console.log("GET METHOD HIT")
+      console.log(hbsObject);
+      res.render("tictactoe3", hbsObject);
      
-    // });
-    res.render("tictactoe3");
+    });
   });
-
-});
-
-
+  
+ 
 
 
 
 
-router.post("/", function(req, res) {
+
+
+
+
+router.post("/tictactoe3", function(req, res) {
 //  console.log("\nPOSTing: :");
   //console.log("\nreq.body.neworder: " + req.body.neworder);
   burger.create([
@@ -73,7 +63,7 @@ router.post("/", function(req, res) {
 
  
 //router.put("/:id", function(req, res) {
-router.put("/:id:colUpdate", function(req, res) {
+router.put("/tictactoe3:id:colUpdate", function(req, res) {
    var condition = "id = " + req.params.id;
    var colUpdate = req.params.colUpdate;
    console.log("\nrouter.put");
@@ -93,7 +83,7 @@ router.put("/:id:colUpdate", function(req, res) {
  });
 
  //router.delete("/api/burgers/:id", function(req, res) {
- router.delete("/:id", function(req, res) {
+ router.delete("/tictactoe3/:id", function(req, res) {
   console.log("\nrouter.delete  !!");
    var condition = "id = " + req.params.id;
    console.log("\nrouter.delete condition :: " + condition);
