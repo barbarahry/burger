@@ -1,4 +1,12 @@
-<tr>{{#if gameOver}} <p>!! GAME OVER  !! </p> {{/if}}<p>Last Move({{gameMove}}):  <img src="assets/images/{{lastPlayer}}.svg" width="50px" height="50px" alt="" > ({{lastPlayer}})</p><br><br></div></tr>
+<tr><div class="profile2"></div>
+        {{#if gameOver}}
+        <p>!! GAME OVER  !! </p> 
+    {{else}}
+        <p>Last Move({{gameMove}}):  <img src="assets/images/{{lastPlayer}}.svg" width="50px" height="50px" alt="" > ({{lastPlayer}})</p>
+    {{/if}}
+    <br>
+    </div>
+</tr>
 <tr>
         <td id="cel1" class="cell" data-cell="">
                 <div class="profile2">
