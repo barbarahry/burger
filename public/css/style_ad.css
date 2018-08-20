@@ -147,7 +147,7 @@ table {
   overflow: hidden; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   /* background-color: rgba(0,0,0,0.0); Black w/ opacity */
-  border: 20px dashed #31d133;
+  border: 20px dashed #cc0000;
 }
 
 /* Modal Content */
